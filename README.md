@@ -1,7 +1,7 @@
 # Word Catalog
 Make a word catalog from a textbook.
 ---
-Time:2018-8-9 23:45:37<br><br>
+* Time:2018-8-9 23:45:37<br><br>
 Version:0.01:<br>
 * 1.read the name of textbook<br>
 * 2.removing the same words<br>
