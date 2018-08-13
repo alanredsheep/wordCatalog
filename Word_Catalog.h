@@ -1,34 +1,21 @@
-#ifndef _HEADER_IOSTREAM
-#define _HEADER_IOSTREAM
+#pragma once 
+#ifndef _WORD_CATALOG_
+#define _WORD_CATALOG_
 #include<iostream>
-#endif
-#ifndef _HEADER_FSTREAM
-#define _HEADER_FSTREAM
 #include<fstream>
-#endif
-#ifndef _HEADER_STRING
-#define _HEADER_STRING
 #include<string>
-#endif
-#ifndef _HEADER_VECTOR
-#define _HEADER_VECTOR
 #include<vector>
-#endif
-#ifndef _HEADER_ALGORITHM
-#define _HEADER_ALGORITHM
 #include<algorithm>
-#endif
-#define wordAmount 3000//é»˜è®¤è¯æ±‡é‡3000
+#define wordAmount 3000//Ä¬ÈÏ´Ê»ãÁ¿3000
 class Word_Catalog
 {
-
 	friend std::wifstream& operator>>(std::wifstream&, Word_Catalog&);
 	friend std::wofstream& operator<<(std::wofstream&, Word_Catalog&);
 public:
 	Word_Catalog(std::string & bookName,size_t wordamout = wordAmount);
 	Word_Catalog(size_t wordamout = wordAmount);
 	~Word_Catalog();
-	//å†™å…¥å•è¯ç›®å½•æ–‡ä»¶
+	//Ğ´Èëµ¥´ÊÄ¿Â¼ÎÄ¼ş
 	void writeCatalog()
 	{
 		std::wofstream wcatalog(fileName, std::wofstream::out);
@@ -53,7 +40,7 @@ public:
 		std::cout << "complete!" << std::endl;
 		wcatalog.close();
 	}
-	//æ‰“å°å•è¯ç›®å½•åˆ°å±å¹•
+	//´òÓ¡µ¥´ÊÄ¿Â¼µ½ÆÁÄ»
 	void printCatalog()
 	{
 		for (auto &j : words)
@@ -65,13 +52,13 @@ private:
 	std::string fileName;
 	std::vector<std::wstring> words;
 };
-//éæˆå‘˜å‡½æ•°å£°æ˜
+//·Ç³ÉÔ±º¯ÊıÉùÃ÷
 std::string getbookName(const std::string & );
 void removepunc(std::vector<std::wstring> &);
 void toLower(std::vector<std::wstring> &);
 void finalcheck(std::vector<std::wstring> &);
 void youhua(std::vector<std::wstring> &);
-//æ„é€ å‡½æ•°
+//¹¹Ôìº¯Êı
 Word_Catalog::Word_Catalog(std::string & bookName,size_t wordamout)
 {
 	fileName = getbookName(bookName) + "_wordCatalog.txt";
@@ -98,13 +85,13 @@ Word_Catalog::Word_Catalog(std::string & bookName,size_t wordamout)
 				break;
 			}
 			else
-				std::cerr << "æœªçŸ¥é”™è¯¯ 01" << std::endl;
+				std::cerr << "Î´Öª´íÎó 01" << std::endl;
 		}
 	}
 	infile.close();
 	youhua(words);
 }
-Word_Catalog::Word_Catalog(size_t wordamout)//é»˜è®¤åˆ›å»º
+Word_Catalog::Word_Catalog(size_t wordamout)//Ä¬ÈÏ´´½¨
 {
 	fileName = "unamed_wordCatalog.txt";
 	words.reserve(wordamout);
@@ -112,7 +99,7 @@ Word_Catalog::Word_Catalog(size_t wordamout)//é»˜è®¤åˆ›å»º
 Word_Catalog::~Word_Catalog()
 {
 }
-//wifstreamç›´æ¥èµ‹å€¼vector<wstring>
+//wifstreamÖ±½Ó¸³Öµvector<wstring>
 std::wifstream& operator>>(std::wifstream& is, Word_Catalog& wc)
 {
 	std::wstring currentWord;
@@ -132,13 +119,13 @@ std::wifstream& operator>>(std::wifstream& is, Word_Catalog& wc)
 				break;
 			}
 			else
-				std::cerr << "æœªçŸ¥é”™è¯¯ 01" << std::endl;
+				std::cerr << "Î´Öª´íÎó 01" << std::endl;
 		}
 	}
 	youhua(wc.words);
 	return is;
 }
-//å†™å…¥å•è¯ç›®å½•æ–‡ä»¶
+//Ğ´Èëµ¥´ÊÄ¿Â¼ÎÄ¼ş
 std::wofstream& operator<<(std::wofstream& os, Word_Catalog& wc)
 {
 	for (auto &k : wc.words)
@@ -147,19 +134,19 @@ std::wofstream& operator<<(std::wofstream& os, Word_Catalog& wc)
 	}
 	return os;
 }
-//è·å–ä¹¦å
+//»ñÈ¡ÊéÃû
 std::string getbookName(const std::string & bookName)
 {
 	if (bookName.empty())
 	{
-		std::cerr << "æ–‡ä»¶åä¸ºç©º" << std::endl;
+		std::cerr << "ÎÄ¼şÃûÎª¿Õ" << std::endl;
 		return 0;
 	}
 	std::string bname = bookName;
 	auto pos = bname.find_last_of('.');
 	if (pos == std::string::npos || pos == bname.size())
 	{
-		std::cerr << "æ–‡ä»¶åä¸åˆæ³•,è¯·åŒ…å«æ–‡ä»¶æ ¼å¼" << std::endl;
+		std::cerr << "ÎÄ¼şÃû²»ºÏ·¨,Çë°üº¬ÎÄ¼ş¸ñÊ½" << std::endl;
 	}
 	else
 	{
@@ -176,24 +163,24 @@ std::string getbookName(const std::string & bookName)
 		return bname;
 	}
 }
-//ä¼˜åŒ–å‡½æ•°
+//ÓÅ»¯º¯Êı
 void removepunc(std::vector<std::wstring> &wwords)
 {
 	for (auto str = wwords.begin();str <= wwords.end() - 1;)
 	{
-		for (auto i = (*str).begin();i < (*str).end() ;)//å½“æœ€åä¸€ä¸ªå­—ç¬¦æ˜¯
+		for (auto i = (*str).begin();i < (*str).end() ;)//µ±×îºóÒ»¸ö×Ö·ûÊÇ
 		{
-			if (iswalpha(*i) || *i == L'-')//å­—æ¯æˆ–è€…è¿å­—ç¬¦'-'å°±ç•¥è¿‡
+			if (iswalpha(*i) || *i == L'-')//×ÖÄ¸»òÕßÁ¬×Ö·û'-'¾ÍÂÔ¹ı
 			{
 				i++;
 				continue;
 			}
-			else//ç‰¹æ®Šå­—ç¬¦åˆ æ‰
+			else//ÌØÊâ×Ö·ûÉ¾µô
 			{
 				(*str).erase(i);
 			}
 		}
-		if ((*str).empty() || (*str).size() == 1)//å¦‚æœæ˜¯æ— æ•ˆä¸²å°±åˆ æ‰
+		if ((*str).empty() || (*str).size() == 1)//Èç¹ûÊÇÎŞĞ§´®¾ÍÉ¾µô
 		{
 			str = wwords.erase(str);
 			continue;
@@ -228,3 +215,5 @@ void youhua(std::vector<std::wstring> &wwords)
 	sort(wwords.begin(), wwords.end());
 	finalcheck(wwords);
 }
+
+#endif // !_WORD_CATALOG_
