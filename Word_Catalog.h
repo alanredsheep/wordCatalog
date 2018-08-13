@@ -1,27 +1,27 @@
 #ifndef _HEADER_IOSTREAM
 #define _HEADER_IOSTREAM
 #include<iostream>
-#endif 
+#endif
 #ifndef _HEADER_FSTREAM
 #define _HEADER_FSTREAM
 #include<fstream>
-#endif 
+#endif
 #ifndef _HEADER_STRING
 #define _HEADER_STRING
 #include<string>
-#endif 
+#endif
 #ifndef _HEADER_VECTOR
 #define _HEADER_VECTOR
 #include<vector>
-#endif 
+#endif
 #ifndef _HEADER_ALGORITHM
 #define _HEADER_ALGORITHM
 #include<algorithm>
-#endif 
+#endif
 #define wordAmount 3000//默认词汇量3000
 class Word_Catalog
 {
-	
+
 	friend std::wifstream& operator>>(std::wifstream&, Word_Catalog&);
 	friend std::wofstream& operator<<(std::wofstream&, Word_Catalog&);
 public:
@@ -181,29 +181,20 @@ void removepunc(std::vector<std::wstring> &wwords)
 {
 	for (auto str = wwords.begin();str <= wwords.end() - 1;)
 	{
-		//if ((*str).size() == 1)//如果是单字符串就删掉
-		//{
-		//	//std::cout << "单字符" << std::endl;
-		//	str = wwords.erase(str);
-		//	continue;
-		//}
 		for (auto i = (*str).begin();i < (*str).end() ;)//当最后一个字符是
 		{
 			if (iswalpha(*i) || *i == L'-')//字母或者连字符'-'就略过
 			{
-				//std::cout << "zimu" << std::endl;
 				i++;
 				continue;
 			}
 			else//特殊字符删掉
 			{
-				//std::cout << "fuhao" << std::endl;
 				(*str).erase(i);
 			}
 		}
 		if ((*str).empty() || (*str).size() == 1)//如果是无效串就删掉
 		{
-			//std::cout << "无效串" << std::endl;
 			str = wwords.erase(str);
 			continue;
 		}
