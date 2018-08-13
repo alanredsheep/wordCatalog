@@ -54,7 +54,7 @@ public:
 		wcatalog.close();
 	}
 	//打印单词目录到屏幕
-	void xianshi()
+	void printCatalog()
 	{
 		for (auto &j : words)
 		{
