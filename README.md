@@ -10,7 +10,7 @@
 * member function (public)<br>
 **void writeCatalog()** creat catalog file with **fileName** <br>
 **void writeCatalog(std::string &selfName)** creat catalog file with **selfName**<br>
-**void printwords()** print **Word_Catalog.words** to screen<br><br>
+**void printCatalog()** print **Word_Catalog.words** to screen<br><br>
 * non-member function (friend)<br>
 **std::wifstream& operator>>** read **Word_Catalog.words** from wifstream to **Word_Catalog**<br>
 **std::wifstream& operator<<** write **Word_Catalog.words** from **Word_Catalog** to wofstream<br><br>
