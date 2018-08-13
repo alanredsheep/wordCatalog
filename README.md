@@ -18,4 +18,8 @@
 **void youhua(std::vector<std::wstring> &wwords)** processing include **removepunc/toLower/sort/finalcheck**<br>
 ---
 # mainchar.cpp
-#### A source cpp file for making a word catalog from a textbook.Only able to deal with the char.
+#### A source cpp file for making a word catalog from a textbook.Only able to deal with the char.<br>
+
+---
+**Lastest update time:** 2018-8-13 12:21:11 <br>
+**Author:** Alan Redsheep
