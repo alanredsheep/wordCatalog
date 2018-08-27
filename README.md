@@ -21,4 +21,4 @@
 #### A source cpp file for making a word catalog from a textbook.An old version only able to deal with the char.<br>
 ---
 **Lastest update time:** 2018-8-13 12:21:11 <br>
-**Author:** Alan Redsheep
+**Editor:** Alan Redsheep
